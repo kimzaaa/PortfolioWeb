@@ -1,12 +1,12 @@
 .card {
     background-color: #000;
     height: 500px;
-    width: 135%;
-    max-width: 780px;
+    width: 115%;
+    max-width: 680px;
 }
 .display {
-    width: 760px;
-    height: 400px;
+    width: 680px;
+    height: 350px;
     background-color: #181818;
     margin-bottom: 15px;
     margin-left: 10px;
