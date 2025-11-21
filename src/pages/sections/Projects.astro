@@ -14,7 +14,7 @@ import projectData from '../../data/project.json';
             <p class="paragraph">Code. Deploy. Compose. I am a multi-disciplinary creative who builds digital experiences from scratch. I have successfully developed and published cross-platform games and web apps, managing the full product lifecycle. Simultaneously, I am a pianist and recording artist, bringing a rhythmic precision to my engineering work.</p>
             
             <div class="projects-grid">
-            {projectData.map((project) => (
+                    {projectData.map((project) => (
                 <ProjectCard 
                     title={project.title} 
                     description={project.description}
@@ -51,17 +51,23 @@ import projectData from '../../data/project.json';
     }
     
     .main-row {
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-start;
+        gap: 40px;
+        width: 100%;
     }
 
     .projects-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 60px;
         max-width: 1400px;
         padding-top: 80px;
-        padding-right: 80px;
+        padding-right: 260px;
+        margin: 0 auto;
+        width: 100%;
     }
 
     @media (max-width: 1000px) {
