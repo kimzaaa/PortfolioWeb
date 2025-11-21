@@ -1,0 +1,114 @@
+---
+import ProjectCard from "../../components/ProjectCard.jsx";
+
+import projectData from '../../data/project.json';
+---
+<div id="Projects">
+    <div class="content-wrapper">
+        <div class="header-row">
+            <div class="bg-header">
+                <p class="header-text">Projects</p>
+            </div>
+        </div>
+        <div class="main-row">
+            <p class="paragraph">Code. Deploy. Compose. I am a multi-disciplinary creative who builds digital experiences from scratch. I have successfully developed and published cross-platform games and web apps, managing the full product lifecycle. Simultaneously, I am a pianist and recording artist, bringing a rhythmic precision to my engineering work.</p>
+            
+            <div class="projects-grid">
+            {projectData.map((project) => (
+                <ProjectCard 
+                    title={project.title} 
+                    description={project.description}
+                    year={project.year}
+                >
+                    <p> </p>
+                </ProjectCard>
+            ))}
+            </div>
+            <button class = "see-more-button">See More</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    #Projects {
+        background-color: #0A0B0C;
+        height: 250vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-top: 250px;
+    }
+
+    .content-wrapper {
+        margin-bottom: 200px;
+    }
+
+    .header-row {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .main-row {
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1400px;
+        padding-top: 80px;
+        padding-right: 80px;
+    }
+
+    @media (max-width: 1000px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .bg-header {
+        margin-top: 100px;
+        width: fit-content;
+        padding: 5px 40px;
+        background-color: #fd7f5e;
+        margin-bottom: 30px;
+    }
+
+    .header-text {
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: normal;
+        margin: 0;
+        color: white;
+        font-size: 58px;
+        letter-spacing: 2px;
+    }
+
+    .paragraph {
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        line-height: 1.4;
+        margin: 0;
+        font-size: 30px;
+        padding-right: 80px;
+    }
+    .see-more-button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: white;
+        background-color: #fd7f5e;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transform: translateX(-20px);
+    }
+</style>

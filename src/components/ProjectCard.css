@@ -1,0 +1,64 @@
+.card {
+    background-color: #000;
+    height: 500px;
+    width: 115%;
+    max-width: 680px;
+}
+.display {
+    width: 680px;
+    height: 350px;
+    background-color: #181818;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.title-year-group {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    overflow: hidden;
+}
+.title {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    min-width: 0;
+}
+.year {
+    font-family: 'Montserrat', sans-serif;
+    color: #969696;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0;
+    font-size: 22px;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+.arrow {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.description {
+    font-family: 'Montserrat', sans-serif;
+    color: #969696;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 10px;
+    padding-top: 5px;
+}
