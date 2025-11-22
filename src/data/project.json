@@ -1,38 +1,50 @@
 [
   {
     "id": 1,
-    "title": "Static Card",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "Event App",
+    "description": "Thai Event Hub: Instantly locate the best local events and fun activities near you. Connect with friends, earn exclusive redeemable rewards, and nurture your unique digital pet companion.",
+    "year": "2025",
+    "showcaseuri" : "",
+    "link" : ""
     },
   {
     "id": 2,
-    "title": "Another Project",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "pillsync",
+    "description": "The Smart Box, Reminder Bracelet, and App form an AI/OCR-powered NCD medical system. Guarantees timely doses for the elderly, linking users, caretakers, and doctors with vital analytics for seamless care.",
+    "year": "2024 - 2025",
+    "showcaseuri" : "",
+    "link" : ""
     },
   {
     "id": 3,
-    "title": "Another Project",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "project lumphini",
+    "description": "A Pixel Art, Isometric 3D RPG that uses GPS and AR to transform park walking into a real-time adventure. Battle mythical creatures to free Lumphini Park from the dark entity Ratri, earning global rewards through Missions and Challenges.",
+    "year": "2025",
+    "showcaseuri" : "",
+    "link" : ""
   },
   {
     "id": 4,
-    "title": "Another Project",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "Herobook",
+    "description": "Step into a lifelike re-creation of a Thai temple. Explore hidden paths, collect mysterious boxes and vibrant orbs to unlock secrets and new possibilities. Ideal B2B cultural exploration platform.",
+    "year": "2025",
+    "showcaseuri" : "",
+    "link" : ""
 },
   {
     "id": 5,
-    "title": "Another Project",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "Fish Ishf Shfi Hfsi",
+    "description": "A chaotic, ULTRAKILL-inspired FPS developed by 40 creators in just 12 days. Experience fast-paced action with the tagline ''Mankind is dead. Blood is fuel. Fish is full?'' —bugs included, passion guaranteed.",
+    "year": "2025",
+    "showcaseuri" : "",
+    "link" : ""
 },
   {
     "id": 6,
-    "title": "Another Project",
-    "description": "Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour Lorem ipsum salut de amour ",
-    "year": "2023"
+    "title": "Zendit",
+    "description": "A hyper-stylized, fast-paced 3D delivery challenge built with Unity. Navigate a vibrant open-world map as a precision courier, rapidly dispatching packages to diverse clients. Master urban navigation, race the clock, and unlock upgrades to top the leaderboard.",
+    "year": "2025",
+    "showcaseuri" : "",
+    "link" : ""
   }
 ]
