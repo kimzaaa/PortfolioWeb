@@ -1,0 +1,64 @@
+.cards {
+    background-color: #000;
+    height: 500px;
+    width: 125%;
+    max-width: 570px;
+}
+.displays {
+    width: 550px;
+    height: 350px;
+    background-color: #181818;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.title-rows {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.title-year-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    overflow: hidden;
+}
+.titles {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    min-width: 0;
+}
+.years {
+    font-family: 'Montserrat', sans-serif;
+    color: #969696;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+.arrows {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.year-under-titles {
+    font-family: 'Montserrat', sans-serif;
+    color: #969696;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0;
+    font-size: 16px;
+    flex-shrink: 0;
+}

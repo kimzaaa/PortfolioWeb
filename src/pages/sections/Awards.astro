@@ -1,24 +1,61 @@
+---
+import AwardCard from "../../components/AwardsCard.jsx";
+
+import AwardData from '../../data/awards.json';
+---
+
 <div id="Skills">
-    <div class="bg-header">
-        <p class="header-text">Awards</p>
+    <div class="content-wrapper">
+        <div class="header-row">
+            <div class="bg-header">
+                <p class="header-text">Awards</p>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="awards-grid">
+                {AwardData.map((project) => (
+                <AwardCard 
+                    title={project.title} 
+                    year={project.year}
+                >
+                    <p> </p>
+                </AwardCard>
+             ))}
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
     #Skills {
         background-color: #0A0B0C;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
-        align-items: left;
-        justify-content: left;
-    
+        align-items: center;
+        justify-content: flex-start;
+        padding: 100px 50px 0;
     }
+
+    .content-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-row {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+    }
+
     .bg-header {
-        margin-top:100px;
-        width: 300px;
-        height: 100px;
+        width: fit-content;
+        padding: 5px 70px;
         background-color: #fd7f5e;
+        transform: translateX(-40px);
     }
+
     .header-text {
         font-family: 'Bebas Neue', sans-serif;
         font-weight: normal;
@@ -26,7 +63,26 @@
         color: white;
         font-size: 58px;
         letter-spacing: 2px;
-        margin-left: 120px;
-        margin-top: 15px;
+        transform: translateX(40px);
+    }
+
+    .grid-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+    }
+
+    .awards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        width: fit-content;
+    }
+
+    @media (max-width: 1000px) {
+        .awards-grid {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
