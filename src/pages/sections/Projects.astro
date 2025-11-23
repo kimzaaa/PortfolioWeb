@@ -2,6 +2,17 @@
 import ProjectCard from "../../components/ProjectCard.jsx";
 
 import projectData from '../../data/project.json';
+
+const clips = import.meta.glob('/src/assets/Clips/*', { eager: true }) as Record<string, { default: string }>;
+
+const getShowcaseSrc = (uri: string) => {
+    if (!uri) return "";
+    if (uri.startsWith("http")) return uri;
+    
+    const path = `/src/assets/Clips/${uri}`;
+    const module = clips[path];
+    return module ? module.default : uri;
+}
 ---
 <div id="Projects">
     <div class="content-wrapper">
@@ -19,6 +30,9 @@ import projectData from '../../data/project.json';
                     title={project.title} 
                     description={project.description}
                     year={project.year}
+                    showcaseuri={getShowcaseSrc(project.showcaseuri)}
+                    link={project.link}
+                    client:visible
                 >
                     <p> </p>
                 </ProjectCard>

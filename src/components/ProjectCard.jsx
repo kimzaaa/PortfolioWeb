@@ -1,10 +1,35 @@
 import React from 'react';
 import '../components/ProjectCard.css';
 
-export default function ProjectCard({ title, description, year}) {
+export default function ProjectCard({ title, description, year, showcaseuri, link}) {
+  
+  const isVideo = showcaseuri && (showcaseuri.toLowerCase().endsWith('.mov') || showcaseuri.toLowerCase().endsWith('.mp4') || showcaseuri.toLowerCase().endsWith('.webm'));
+
   return (
     <div className="card">
-        <div className="display"></div>
+        <div className="display-wrapper">
+            {showcaseuri ? (
+              isVideo ? (
+                <video 
+                  src={showcaseuri} 
+                  className="display-content" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                />
+              ) : (
+                <img src={showcaseuri} alt={title} className="display-content" />
+              )
+            ) : (
+              <div className="display-content placeholder"></div>
+            )}
+            {link && (
+                <a href={link} target="_blank" rel="noopener noreferrer" className="overlay">
+                    <span className="visit-button">VISIT SITE</span>
+                </a>
+            )}
+        </div>
         <div className="title-row">
             <div className="title-year-group">
                 <p className='title'>{title}</p>

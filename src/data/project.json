@@ -4,8 +4,8 @@
     "title": "Event App",
     "description": "Thai Event Hub: Instantly locate the best local events and fun activities near you. Connect with friends, earn exclusive redeemable rewards, and nurture your unique digital pet companion.",
     "year": "2025",
-    "showcaseuri" : "",
-    "link" : ""
+    "showcaseuri" : "https://img.freepik.com/free-photo/white-empty-canvas_1194-7555.jpg?semt=ais_hybrid&w=740&q=80",
+    "link" : "https://hamsterhub.itch.io/fish"
     },
   {
     "id": 2,
@@ -44,7 +44,7 @@
     "title": "Zendit",
     "description": "A hyper-stylized, fast-paced 3D delivery challenge built with Unity. Navigate a vibrant open-world map as a precision courier, rapidly dispatching packages to diverse clients. Master urban navigation, race the clock, and unlock upgrades to top the leaderboard.",
     "year": "2025",
-    "showcaseuri" : "",
-    "link" : ""
+    "showcaseuri" : "Zendit.mov",
+    "link" : "https://kimza.itch.io/zendit"
   }
 ]
