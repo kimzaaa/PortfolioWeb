@@ -4,8 +4,8 @@
     "title": "Event App",
     "description": "Thai Event Hub: Instantly locate the best local events and fun activities near you. Connect with friends, earn exclusive redeemable rewards, and nurture your unique digital pet companion.",
     "year": "2025",
-    "showcaseuri" : "https://img.freepik.com/free-photo/white-empty-canvas_1194-7555.jpg?semt=ais_hybrid&w=740&q=80",
-    "link" : "https://hamsterhub.itch.io/fish"
+    "showcaseuri" : "",
+    "link" : ""
     },
   {
     "id": 2,
@@ -13,31 +13,31 @@
     "description": "The Smart Box, Reminder Bracelet, and App form an AI/OCR-powered NCD medical system. Guarantees timely doses for the elderly, linking users, caretakers, and doctors with vital analytics for seamless care.",
     "year": "2024 - 2025",
     "showcaseuri" : "",
-    "link" : ""
+    "link" : "https://pillsyncth.netlify.app/#features"
     },
   {
     "id": 3,
     "title": "project lumphini",
     "description": "A Pixel Art, Isometric 3D RPG that uses GPS and AR to transform park walking into a real-time adventure. Battle mythical creatures to free Lumphini Park from the dark entity Ratri, earning global rewards through Missions and Challenges.",
     "year": "2025",
-    "showcaseuri" : "",
-    "link" : ""
+    "showcaseuri" : "Suanlum.mov",
+    "link" : "https://kimza.itch.io/project-lumphini"
   },
   {
     "id": 4,
     "title": "Herobook",
     "description": "Step into a lifelike re-creation of a Thai temple. Explore hidden paths, collect mysterious boxes and vibrant orbs to unlock secrets and new possibilities. Ideal B2B cultural exploration platform.",
     "year": "2025",
-    "showcaseuri" : "",
-    "link" : ""
+    "showcaseuri" : "Herobook.mov",
+    "link" : "https://play.google.com/store/apps/details?id=com.flamingorange.herobook"
 },
   {
     "id": 5,
-    "title": "Fish Ishf Shfi Hfsi",
+    "title": "FISH: Fish Ifsh Sfih Hfis",
     "description": "A chaotic, ULTRAKILL-inspired FPS developed by 40 creators in just 12 days. Experience fast-paced action with the tagline ''Mankind is dead. Blood is fuel. Fish is full?'' —bugs included, passion guaranteed.",
     "year": "2025",
-    "showcaseuri" : "",
-    "link" : ""
+    "showcaseuri" : "Fish.mp4",
+    "link" : "https://hamsterhub.itch.io/fish"
 },
   {
     "id": 6,
