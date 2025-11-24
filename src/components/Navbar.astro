@@ -1,0 +1,85 @@
+---
+---
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#AboutMe" class="nav-link active">About</a>
+        <a href="#Skills" class="nav-link">Skills</a>
+        <a href="#Projects" class="nav-link">Projects</a>
+        <a href="#Awards" class="nav-link">Awards</a>
+        <a href="#MusicSport" class="nav-link">Music & sport</a>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 1000;
+        pointer-events: none; /* Let clicks pass through around the nav */
+    }
+
+    .nav-container {
+        background-color: #111111;
+        padding: 6px;
+        border-radius: 12px;
+        display: flex;
+        gap: 4px;
+        pointer-events: auto; /* Re-enable clicks on the nav itself */
+        border: 1px solid #222;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-link {
+        color: #a0a0a0;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active {
+        background-color: #222;
+        color: #fff;
+    }
+</style>
+
+<script>
+    const sections = document.querySelectorAll('div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function onScroll() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Offset for fixed header
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    // Call once on load to set initial state
+    onScroll();
+</script>

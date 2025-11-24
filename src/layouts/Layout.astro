@@ -1,3 +1,6 @@
+---
+import Navbar from '../components/Navbar.astro';
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -12,11 +15,15 @@
 		<title>Portfolio</title>
 	</head>
 	<body>
+		<Navbar />
 		<slot />
 	</body>
 </html>
 
 <style>
+	html {
+		scroll-behavior: smooth;
+	}
 	html,
 	body {
 		margin: 0;
