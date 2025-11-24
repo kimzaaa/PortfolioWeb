@@ -11,7 +11,17 @@ const getShowcaseSrc = (uri: string) => {
     
     const path = `/src/assets/Clips/${uri}`;
     const module = clips[path];
-    return module ? module.default : uri;
+    
+    if (module) return module.default;
+
+    // Fallback: try to find the file in the clips object by checking if any key ends with the uri
+    // This helps if there are slight path mismatches
+    const foundKey = Object.keys(clips).find(key => key.endsWith('/' + uri));
+    if (foundKey) {
+        return clips[foundKey].default;
+    }
+
+    return uri;
 }
 ---
 <div id="Projects">

@@ -3,7 +3,7 @@ import '../components/ProjectCard.css';
 
 export default function ProjectCard({ title, description, year, showcaseuri, link}) {
   
-  const isVideo = showcaseuri && (showcaseuri.toLowerCase().endsWith('.mov') || showcaseuri.toLowerCase().endsWith('.mp4') || showcaseuri.toLowerCase().endsWith('.webm'));
+  const isVideo = typeof showcaseuri === 'string' && ['.mov', '.mp4', '.webm', '.nov'].some(ext => showcaseuri.toLowerCase().endsWith(ext));
 
   return (
     <div className="card">
