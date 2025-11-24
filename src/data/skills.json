@@ -1,0 +1,57 @@
+[
+  {
+    "category": "Web Dev",
+    "skills": [
+      { "name": "HTML", "level": "Advanced", "percentage": 95 },
+      { "name": "CSS", "level": "Advanced", "percentage": 90 },
+      { "name": "JavaScript", "level": "Advanced", "percentage": 85 },
+      { "name": "React", "level": "Advanced", "percentage": 80 },
+      { "name": "Astro", "level": "Intermediate", "percentage": 75 },
+      { "name": "Tailwind", "level": "Advanced", "percentage": 90 }
+    ]
+  },
+  {
+    "category": "App Dev",
+    "skills": [
+      { "name": "Flutter", "level": "Intermediate", "percentage": 70 },
+      { "name": "React Native", "level": "Intermediate", "percentage": 75 },
+      { "name": "Swift", "level": "Intermediate", "percentage": 60 },
+      { "name": "Kotlin", "level": "Intermediate", "percentage": 60 }
+    ]
+  },
+  {
+    "category": "Game Dev",
+    "skills": [
+      { "name": "Unity", "level": "Advanced", "percentage": 80 },
+      { "name": "C#", "level": "Advanced", "percentage": 80 },
+      { "name": "Unreal Engine", "level": "Beginner", "percentage": 50 },
+      { "name": "C++", "level": "Intermediate", "percentage": 65 }
+    ]
+  },
+  {
+    "category": "General Coding",
+    "skills": [
+      { "name": "Python", "level": "Advanced", "percentage": 85 },
+      { "name": "Java", "level": "Intermediate", "percentage": 70 },
+      { "name": "C++", "level": "Intermediate", "percentage": 65 },
+      { "name": "Git", "level": "Advanced", "percentage": 80 },
+      { "name": "Algorithms", "level": "Intermediate", "percentage": 70 }
+    ]
+  },
+  {
+    "category": "Instruments",
+    "skills": [
+      { "name": "Piano", "level": "Advanced", "percentage": 90 },
+      { "name": "Keyboards", "level": "Advanced", "percentage": 85 },
+      { "name": "Synthesizers", "level": "Intermediate", "percentage": 70 }
+    ]
+  },
+  {
+    "category": "Composition",
+    "skills": [
+      { "name": "Music Theory", "level": "Intermediate", "percentage": 75 },
+      { "name": "Arrangement", "level": "Intermediate", "percentage": 70 },
+      { "name": "Production", "level": "Intermediate", "percentage": 60 }
+    ]
+  }
+]

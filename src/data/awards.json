@@ -1,32 +1,33 @@
 [
   {
     "id": 1,
-    "title": "Static Card",
-    "year": "2024"
+    "title": "POSN Computer Camp 1 & 2",
+    "year": "2024 & 2025"
     },
+    {
+    "id": 5,
+    "title": "SISTEMIC Best-Engineering Award",
+    "year": "2025"
+  },
   {
     "id": 2,
-    "title": "Another Projecssssssssst",
-    "year": "2023"
+    "title": "AST (AI Standard test) TAIEC",
+    "year": "2025"
     },
   {
     "id": 3,
-    "title": "Another Project",
-    "year": "2023"
+    "title": "NSC 27th Contest Regional",
+    "year": "2025"
   },
   {
     "id": 4,
-    "title": "Another Project",
-    "year": "2023"
+    "title": "Hamsterhub Game Jam Finalist",
+    "year": "2025"
 },
-  {
-    "id": 5,
-    "title": "Another Project",
-    "year": "2023"
-},
+  
   {
     "id": 6,
-    "title": "Another Project",
-    "year": "2023"
+    "title": "HKICO Gold Medalist",
+    "year": "2025"
   }
 ]
