@@ -1,0 +1,257 @@
+---
+import ProjectCard from "../../components/ProjectCard.jsx";
+
+import projectData from '../../data/project.json';
+
+const clips = import.meta.glob('/src/assets/Clips/*', { eager: true }) as Record<string, { default: string }>;
+
+const getShowcaseSrc = (uri: string) => {
+    if (!uri) return "";
+    if (uri.startsWith("http")) return uri;
+    
+    const path = `/src/assets/Clips/${uri}`;
+    const module = clips[path];
+    
+    if (module) return module.default;
+
+    // Fallback: try to find the file in the clips object by checking if any key ends with the uri
+    // This helps if there are slight path mismatches
+    const foundKey = Object.keys(clips).find(key => key.endsWith('/' + uri));
+    if (foundKey) {
+        return clips[foundKey].default;
+    }
+
+    return uri;
+}
+---
+<div id="MusicSport">
+    <div class="content-wrapper">
+        <div class="header-row">
+            <div class="bg-header">
+                <p class="header-text">Music & Sport</p>
+            </div>
+        </div>
+
+        <div class="main-row">
+            <p class="paragraph">Code. Deploy. Compose. I am a multi-disciplinary creative who builds digital experiences from scratch. I have successfully developed and published cross-platform games and web apps, managing the full product lifecycle. Simultaneously, I am a pianist and recording artist, bringing a rhythmic precision to my engineering work.</p>
+        </div>
+        
+        <div class="showcase-container">
+            <!-- Left Card: Bio -->
+            <div class="glass-card bio-card">
+                <div class="card-content">
+                    <div class="card-header-group">
+                        <h2 class="card-title">KIMZAMUSIC</h2>
+                        <div class="play-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>
+                    <p class="bio-text">
+                        Code. Deploy. Compose. I am a multi-disciplinary creative who builds digital experiences from scratch. I have successfully developed and published cross-platform games and web apps, managing the full product lifecycle. Simultaneously, I am a pianist and recording artist, bringing a rhythmic precision to my engineering work.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Panel: Music List -->
+            <div class="music-list-panel">
+                <h3 class="panel-title">MUSIC LIST</h3>
+                <div class="track-list">
+                    <div class="track-item"></div>
+                    <div class="track-item"></div>
+                    <div class="track-item"></div>
+                    <div class="track-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #MusicSport {
+        background-color: #0A0B0C;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 50px;
+        padding-top: 0px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .header-row {
+        width: 98%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .main-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 40px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .paragraph {
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        line-height: 1.4;
+        margin: 0;
+        font-size: 30px;
+        padding-right: 80px;
+    }
+
+    .bg-header {
+        margin-top: 100px;
+        width: fit-content;
+        padding: 5px 40px;
+        background-color: #fd7f5e;
+        margin-bottom: 30px;
+    }
+
+    .header-text {
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: normal;
+        margin: 0;
+        color: white;
+        font-size: 58px;
+        letter-spacing: 2px;
+    }
+
+    .showcase-container {
+        display: flex;
+        gap: 40px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(-30px);
+    }
+
+    .glass-card {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .bio-card {
+        flex: 2;
+        min-width: 300px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 400px;
+        background: linear-gradient(145deg, rgba(20, 20, 20, 0.8), rgba(30, 30, 30, 0.4));
+    }
+
+    .card-content {
+        margin-top: auto;
+    }
+
+    .card-header-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        color: white;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    .play-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .play-icon-wrapper:hover {
+        background-color: white;
+        color: black;
+    }
+    
+    .play-icon {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+        margin-left: 2px;
+    }
+
+    .bio-text {
+        font-family: 'Montserrat', sans-serif;
+        color: #cccccc;
+        line-height: 1.6;
+        font-size: 16px;
+        margin: 0;
+        max-width: 600px;
+    }
+
+    .music-list-panel {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .panel-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        margin: 0 0 20px 0;
+        letter-spacing: 1px;
+    }
+
+    .track-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-grow: 1;
+    }
+
+    .track-item {
+        height: 80px;
+        background: rgba(30, 30, 30, 0.6);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .track-item:hover {
+        transform: translateY(-2px);
+        background: rgba(40, 40, 40, 0.7);
+    }
+</style>

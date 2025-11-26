@@ -1,5 +1,18 @@
 ---
 import skillsData from '../../data/skills.json';
+import { FaGlobe, FaReact, FaUnity } from 'react-icons/fa';
+import { SiCplusplus } from 'react-icons/si';
+import { GiPianoKeys } from 'react-icons/gi';
+import { BsMusicNote } from 'react-icons/bs';
+
+const iconMap = {
+    "Web Dev": FaGlobe,
+    "App Dev": FaReact,
+    "Game Dev": FaUnity,
+    "General Coding": SiCplusplus,
+    "Instruments": GiPianoKeys,
+    "Composition": BsMusicNote
+};
 ---
 <div id="Skills">
     <div class="bg-header">
@@ -7,10 +20,14 @@ import skillsData from '../../data/skills.json';
     </div>
     <div class="content-container">
         <div class="skills-grid">
-            {skillsData.map((category) => (
+            {skillsData.map((category) => {
+                const Icon = iconMap[category.category as keyof typeof iconMap];
+                return (
                 <div class="skill-card">
                     <div class="icon-wrapper">
-                        <div class="icon-circle"></div>
+                        <div class="icon-circle">
+                            {Icon && <Icon size={32} color="white" />}
+                        </div>
                     </div>
                     <h3>{category.category}</h3>
                     <div class="skills-list">
@@ -30,7 +47,7 @@ import skillsData from '../../data/skills.json';
                         ))}
                     </div>
                 </div>
-            ))}
+            )})}
         </div>
     </div>
 </div>
@@ -91,32 +108,41 @@ import skillsData from '../../data/skills.json';
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 20px;
-        transition: transform 0.3s ease;
+        padding: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.02);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .skill-card:hover {
         transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(253, 127, 94, 0.2);
+        border-color: #fd7f5e;
     }
 
     .icon-wrapper {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .icon-circle {
-        width: 64px;
-        height: 64px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         background-color: #fd7f5e;
-        box-shadow: 0 0 15px rgba(253, 127, 94, 0.6);
+        box-shadow: 0 0 20px rgba(253, 127, 94, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .skill-card h3 {
         color: white;
         font-family: 'Montserrat', sans-serif;
-        margin: 0 0 20px 0;
-        font-size: 28px;
+        margin: 0 0 25px 0;
+        font-size: 24px;
         letter-spacing: 1px;
+        font-weight: 600;
     }
 
     .skills-list {
