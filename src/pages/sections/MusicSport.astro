@@ -23,6 +23,40 @@ const getShowcaseSrc = (uri: string) => {
 
     return uri;
 }
+
+// --- SPOTIFY CONFIGURATION ---
+// Add your tracks here. 
+// For now, you can manually add title/artist. 
+// In the future, if you connect the API, we can remove title/artist and just use the URL.
+const trackData = [
+    {
+        url: "https://open.spotify.com/track/78LhYbbpdpKKBtN6aAJvB5?si=7f55bd98b03e40e6", // Example Link
+        title: "Flights",
+        artist: "Kimzamusic",
+        image: "https://i.scdn.co/image/ab67616d0000b2735755e164993798e0c9ef7d7a" // Example Image
+    },
+    {
+        url: "https://open.spotify.com/track/placeholder2",
+        title: "Song Title 2",
+        artist: "Artist Name",
+        image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop"
+    },
+    {
+        url: "https://open.spotify.com/track/placeholder3",
+        title: "Song Title 3",
+        artist: "Artist Name",
+        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&h=300&fit=crop"
+    },
+    {
+        url: "https://open.spotify.com/track/placeholder4",
+        title: "Song Title 4",
+        artist: "Artist Name",
+        image: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=300&h=300&fit=crop"
+    }
+];
+
+const tracks = trackData;
+// -----------------------------
 ---
 <div id="MusicSport">
     <div class="content-wrapper">
@@ -56,10 +90,20 @@ const getShowcaseSrc = (uri: string) => {
             <div class="music-list-panel">
                 <h3 class="panel-title">MUSIC LIST</h3>
                 <div class="track-list">
-                    <div class="track-item"></div>
-                    <div class="track-item"></div>
-                    <div class="track-item"></div>
-                    <div class="track-item"></div>
+                    {tracks.map((track) => (
+                        <a href={track.url} target="_blank" class="track-item" style={`background-image: url(${track.image})`}>
+                            <div class="track-overlay"></div>
+                            <div class="track-content">
+                                <div class="track-info">
+                                    <span class="track-name">{track.title}</span>
+                                    <span class="track-artist">{track.artist}</span>
+                                </div>
+                                <div class="track-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
                 </div>
             </div>
         </div>
@@ -243,15 +287,94 @@ const getShowcaseSrc = (uri: string) => {
 
     .track-item {
         height: 80px;
-        background: rgba(30, 30, 30, 0.6);
         border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        transition: transform 0.2s ease, background 0.2s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
     }
 
     .track-item:hover {
         transform: translateY(-2px);
-        background: rgba(40, 40, 40, 0.7);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .track-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+        z-index: 1;
+        transition: background 0.3s ease;
+    }
+
+    .track-item:hover .track-overlay {
+        background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .track-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 20px;
+    }
+
+    .track-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        backdrop-filter: blur(4px);
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    
+    .track-item:hover .track-icon {
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        transform: scale(1.1);
+    }
+    
+    .track-icon svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+        margin-left: 2px; /* Optical centering for play icon */
+    }
+
+    .track-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .track-name {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 18px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .track-artist {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
 </style>
