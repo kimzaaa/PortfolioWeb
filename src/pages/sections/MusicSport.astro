@@ -4,6 +4,8 @@ import ProjectCard from "../../components/ProjectCard.jsx";
 import projectData from '../../data/project.json';
 
 const clips = import.meta.glob('/src/assets/Clips/*', { eager: true }) as Record<string, { default: string }>;
+const musicClips = import.meta.glob('/src/assets/Clips/kimzamusic/*.mp4', { eager: true }) as Record<string, { default: string }>;
+const musicVideos = Object.values(musicClips).map(module => module.default);
 
 const getShowcaseSrc = (uri: string) => {
     if (!uri) return "";
@@ -39,6 +41,12 @@ const getShowcaseSrc = (uri: string) => {
         <div class="showcase-container">
             <!-- Left Card: Bio -->
             <div class="glass-card bio-card">
+                <div class="video-background">
+                    {musicVideos.map((src) => (
+                        <video src={src} autoplay loop muted playsinline></video>
+                    ))}
+                </div>
+                <div class="video-overlay"></div>
                 <div class="card-content">
                     <div class="card-header-group">
                         <h2 class="card-title">KIMZAMUSIC</h2>
@@ -149,18 +157,49 @@ const getShowcaseSrc = (uri: string) => {
     }
 
     .bio-card {
-        flex: 2;
-        min-width: 300px;
-        padding: 40px;
+        flex: 2.5;
+        min-width: 30vw;
+        padding: 2.5vw;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        min-height: 400px;
-        background: linear-gradient(145deg, rgba(20, 20, 20, 0.8), rgba(30, 30, 30, 0.4));
+        min-height: 30vw;
+        position: relative;
+        overflow: hidden;
+        /* background moved to overlay */
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        z-index: 0;
+    }
+
+    .video-background video {
+        flex: 1;
+        width: 33.33%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, rgba(20, 20, 20, 0.8), rgba(30, 30, 30, 0.6));
+        z-index: 1;
     }
 
     .card-content {
         margin-top: auto;
+        position: relative;
+        z-index: 2;
     }
 
     .card-header-group {
