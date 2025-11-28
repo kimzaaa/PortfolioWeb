@@ -13,9 +13,7 @@ const getShowcaseSrc = (uri: string) => {
     const module = clips[path];
     
     if (module) return module.default;
-
-    // Fallback: try to find the file in the clips object by checking if any key ends with the uri
-    // This helps if there are slight path mismatches
+    
     const foundKey = Object.keys(clips).find(key => key.endsWith('/' + uri));
     if (foundKey) {
         return clips[foundKey].default;
@@ -37,6 +35,7 @@ const getShowcaseSrc = (uri: string) => {
             <div class="projects-grid">
                     {projectData.map((project) => (
                 <ProjectCard 
+                    id={project.id}
                     title={project.title} 
                     description={project.description}
                     year={project.year}

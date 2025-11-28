@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import projectData from '../../data/project.json';
+import TopSection from './topsection.astro';
+import BottomSection from './bottomsection.astro';
+
+export async function getStaticPaths() {
+  return projectData.map((project) => ({
+    params: { id: project.id.toString() },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+// Calculate Previous and Next Projects
+const currentIndex = projectData.findIndex(p => p.id === project.id);
+const prevProject = currentIndex > 0 ? projectData[currentIndex - 1] : null;
+const nextProject = currentIndex < projectData.length - 1 ? projectData[currentIndex + 1] : null;
+
+// Helper to resolve showcase image/video
+const assets = import.meta.glob('/src/assets/**/*', { eager: true });
+
+const getAssetSrc = (folder, uri) => {
+    if (!uri) return "";
+    if (uri.startsWith("http")) return uri;
+    
+    const cleanUri = uri.startsWith('/') ? uri.slice(1) : uri;
+    
+    // Construct the expected absolute path
+    // Note: keys from import.meta.glob with absolute pattern usually start with /src/
+    const targetPath = `/src/assets/${folder}/${cleanUri}`.toLowerCase();
+    
+    const foundKey = Object.keys(assets).find(key => key.toLowerCase() === targetPath);
+
+    if (foundKey) {
+        return assets[foundKey].default;
+    }
+
+    // Fallback: try to find the file in the specific folder with looser matching
+    const partialMatch = Object.keys(assets).find(key => {
+        const normalizedKey = key.toLowerCase();
+        return normalizedKey.includes(`/${folder.toLowerCase()}/`) && normalizedKey.endsWith(cleanUri.toLowerCase());
+    });
+
+    if (partialMatch) {
+        return assets[partialMatch].default;
+    }
+
+    return uri;
+}
+
+const showcaseSrc = getAssetSrc('Clips', project.showcaseuri);
+const isVideo = typeof project.showcaseuri === 'string' && ['.mov', '.mp4', '.webm', '.nov'].some(ext => project.showcaseuri.toLowerCase().endsWith(ext));
+
+const galleryImages = (project.gallery || []).map(uri => ({
+  src: getAssetSrc('gallery', uri),
+  isVideo: typeof uri === 'string' && ['.mov', '.mp4', '.webm', '.nov'].some(ext => uri.toLowerCase().endsWith(ext))
+}));
+---
+
+<Layout>
+  <div class="project-details-container">
+    <TopSection title={project.title} />
+    <div class="fade-in-section">
+      <BottomSection 
+        project={project} 
+        prevProject={prevProject} 
+        nextProject={nextProject}
+        showcaseSrc={showcaseSrc}
+        isVideo={isVideo}
+        gallery={galleryImages}
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .project-details-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+  }
+</style>

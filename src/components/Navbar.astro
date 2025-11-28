@@ -2,11 +2,11 @@
 ---
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#AboutMe" class="nav-link active">About</a>
-        <a href="#Skills" class="nav-link">Skills</a>
-        <a href="#Projects" class="nav-link">Projects</a>
-        <a href="#Awards" class="nav-link">Awards</a>
-        <a href="#MusicSport" class="nav-link">Music & sport</a>
+        <a href="/#AboutMe" class="nav-link active">About</a>
+        <a href="/#Skills" class="nav-link">Skills</a>
+        <a href="/#Projects" class="nav-link">Projects</a>
+        <a href="/#Awards" class="nav-link">Awards</a>
+        <a href="/#MusicSport" class="nav-link">Music & sport</a>
     </div>
 </nav>
 
@@ -54,10 +54,20 @@
 </style>
 
 <script>
-    const sections = document.querySelectorAll('div[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Get all section IDs from the nav links
+    const sectionIds = Array.from(navLinks).map(link => {
+        const href = link.getAttribute('href');
+        return href.startsWith('/#') ? href.substring(1) : href;
+    });
+
+    // Filter to only sections that actually exist on the current page
+    const sections = sectionIds.map(id => document.querySelector(id)).filter(section => section !== null);
 
     function onScroll() {
+        if (sections.length === 0) return; // Don't run spy if sections aren't present
+
         let current = '';
         
         sections.forEach(section => {
@@ -71,7 +81,8 @@
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            const href = link.getAttribute('href');
+            if (href === `/#${current}` || href === `#${current}`) {
                 link.classList.add('active');
             }
         });
@@ -83,13 +94,21 @@
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            if (targetId) {
+            const href = link.getAttribute('href');
+            
+            // Handle links that start with /#
+            if (href && href.startsWith('/#')) {
+                const targetId = href.substring(1); // Remove the leading /
                 const targetSection = document.querySelector(targetId);
+                
+                // If the section exists on this page, smooth scroll to it
                 if (targetSection) {
+                    e.preventDefault();
                     targetSection.scrollIntoView({ behavior: 'smooth' });
+                    // Optional: update URL hash without scrolling
+                    history.pushState(null, null, targetId);
                 }
+                // If section doesn't exist, let the default behavior happen (navigate to the page)
             }
         });
     });

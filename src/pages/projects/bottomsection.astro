@@ -1,0 +1,221 @@
+---
+const { project, prevProject, nextProject, showcaseSrc, isVideo, gallery } = Astro.props;
+
+// Helper to extract URL from Astro's ImageMetadata object if necessary
+const getSrc = (src) => {
+    if (typeof src === 'object' && src !== null && 'src' in src) {
+        return src.src;
+    }
+    return src;
+};
+---
+
+<div class="bottom-section">
+    <div class="left-side">
+        <div class="nav-top">
+             <a href="/#Projects" onclick="if(document.referrer.includes(window.location.host)) { history.back(); return false; }" class="back-link">&lt; BACK TO PROJECTS</a>
+        </div>
+        
+        <div class="info">
+            <p class="year">{project.year}</p>
+            <p class="description">{project.details}</p>
+            {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="visit-site-button">
+                  VISIT SITE
+                </a>
+            )}
+        </div>
+
+        <div class="nav-bottom">
+            {prevProject ? (
+                <a href={`/projects/${prevProject.id}`} class="nav-link">PREVIOUS</a>
+            ) : (
+                <span class="nav-link disabled">PREVIOUS</span>
+            )}
+            
+            {nextProject ? (
+                <a href={`/projects/${nextProject.id}`} class="nav-link">NEXT</a>
+            ) : (
+                <span class="nav-link disabled">NEXT</span>
+            )}
+        </div>
+    </div>
+
+    <div class="right-side">
+        <div class="media-box">
+             {showcaseSrc ? (
+                isVideo ? (
+                  <video src={getSrc(showcaseSrc)} autoplay loop muted playsinline controls class="media-content" />
+                ) : (
+                  <img src={getSrc(showcaseSrc)} alt={project.title} class="media-content" />
+                )
+              ) : (
+                <div class="placeholder"></div>
+              )}
+        </div>
+        
+        {gallery && gallery.map((item) => (
+            <div class="media-box">
+                {item.isVideo ? (
+                    <video src={getSrc(item.src)} autoplay loop muted playsinline controls class="media-content" />
+                ) : (
+                    <img src={getSrc(item.src)} alt="Project Gallery" class="media-content" />
+                )}
+            </div>
+        ))}
+    </div>
+</div>
+
+<style>
+    .bottom-section {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        gap: 40px;
+        padding: 0 40px 40px;
+        box-sizing: border-box;
+    }
+
+    /* Left Side (Stationary) */
+    .left-side {
+        flex: 1;
+        position: sticky;
+        top: 100px; /* Adjust based on navbar height */
+        height: calc(100vh - 140px);
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .nav-top {
+        margin-bottom: 40px;
+    }
+
+    .back-link {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        color: #888;
+        text-decoration: none;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+        color: white;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .year {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        color: #666;
+        margin: 0;
+    }
+
+    .description {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #ddd;
+        margin: 0;
+    }
+
+    .visit-site-button {
+        display: inline-block;
+        width: fit-content;
+        background-color: #fd7f5e;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background-color 0.2s ease;
+        margin-top: 10px;
+    }
+
+    .visit-site-button:hover {
+        background-color: #e06040;
+    }
+
+    .nav-bottom {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        margin-top: auto;
+    }
+
+    .nav-link {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #fd7f5e;
+    }
+
+    .nav-link.disabled {
+        color: #444;
+        cursor: default;
+    }
+
+    /* Right Side (Scrollable) */
+    .right-side {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .media-box {
+        width: 100%;
+        background-color: #111;
+        border-radius: 8px;
+        overflow: hidden;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .media-content {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .placeholder-box {
+        background-color: #111;
+        height: 400px; /* Fixed height for placeholders */
+    }
+
+    @media (max-width: 900px) {
+        .bottom-section {
+            flex-direction: column;
+        }
+        
+        .left-side {
+            position: static;
+            height: auto;
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-bottom {
+            margin-top: 40px;
+        }
+    }
+</style>

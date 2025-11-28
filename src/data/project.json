@@ -3,48 +3,60 @@
     "id": 1,
     "title": "Event App",
     "description": "Thai Event Hub: Instantly locate the best local events and fun activities near you. Connect with friends, earn exclusive redeemable rewards, and nurture your unique digital pet companion.",
+    "details": "Thai Event Hub is a comprehensive platform designed to connect users with local events and activities. It features a social component where users can connect with friends, a reward system for participating in events, and a unique digital pet companion that grows as you engage with the app.",
     "year": "2025",
     "showcaseuri" : "EventApp.mov",
+    "gallery": [],
     "link" : ""
     },
   {
     "id": 2,
     "title": "pillsync",
     "description": "The Smart Box, Reminder Bracelet, and App form an AI/OCR-powered NCD medical system. Guarantees timely doses for the elderly, linking users, caretakers, and doctors with vital analytics for seamless care.",
+    "details": "Pillsync is an innovative medical adherence system designed to help elderly patients manage their medication. It combines a smart pillbox, a reminder bracelet, and a mobile app powered by AI and OCR technology to ensure timely dosage and provide vital analytics to caregivers and doctors.",
     "year": "2024 - 2025",
     "showcaseuri" : "",
+    "gallery": [],
     "link" : "https://pillsyncth.netlify.app"
     },
   {
     "id": 3,
     "title": "project lumphini",
     "description": "A Pixel Art, Isometric 3D RPG that uses GPS and AR to transform park walking into a real-time adventure. Battle mythical creatures to free Lumphini Park from the dark entity Ratri, earning global rewards through Missions and Challenges.",
+    "details": "Project Lumphini is a location-based RPG that gamifies the experience of walking in Lumphini Park. Using GPS and AR technology, players can explore a pixel-art recreation of the park, battle mythical creatures, and complete missions to earn rewards. The game aims to promote physical activity and engagement with the local environment.",
     "year": "2025",
     "showcaseuri" : "Suanlum.mov",
+    "gallery": [],
     "link" : "https://kimza.itch.io/project-lumphini"
   },
   {
     "id": 4,
     "title": "Herobook",
     "description": "Step into a lifelike re-creation of a Thai temple. Explore hidden paths, collect mysterious boxes and vibrant orbs to unlock secrets and new possibilities. Ideal B2B cultural exploration platform.",
+    "details": "Herobook offers an immersive virtual tour of a Thai temple, allowing users to explore its architecture and history in a gamified environment. Users can collect items and unlock secrets as they navigate the lifelike recreation, making it an engaging tool for cultural education and exploration.",
     "year": "2025",
     "showcaseuri" : "Herobook.mov",
+    "gallery": [],
     "link" : "https://play.google.com/store/apps/details?id=com.flamingorange.herobook"
 },
   {
     "id": 5,
     "title": "FISH: Fish Ifsh Sfih Hfis",
     "description": "A chaotic, ULTRAKILL-inspired FPS developed by 40 creators in just 12 days. Experience fast-paced action with the tagline ''Mankind is dead. Blood is fuel. Fish is full?'' —bugs included, passion guaranteed.",
+    "details": "FISH is a high-octane FPS game created during a 12-day game jam. Inspired by ULTRAKILL, it features fast-paced combat and a chaotic art style. The project was a collaborative effort involving 40 creators, resulting in a unique and energetic gaming experience.",
     "year": "2025",
     "showcaseuri" : "Fish.mp4",
+    "gallery": [],
     "link" : "https://hamsterhub.itch.io/fish"
 },
   {
     "id": 6,
     "title": "Zendit",
     "description": "A hyper-stylized, fast-paced 3D delivery challenge built with Unity. Navigate a vibrant open-world map as a precision courier, rapidly dispatching packages to diverse clients. Master urban navigation, race the clock, and unlock upgrades to top the leaderboard.",
+    "details": "Zendit is a 3D delivery game where players take on the role of a courier in a vibrant open world. The game challenges players to deliver packages quickly and efficiently while navigating complex urban environments. It features a stylized art direction and fast-paced gameplay mechanics.",
     "year": "2025",
     "showcaseuri" : "Zendit.mov",
+    "gallery": ["Zendit1.png"],
     "link" : "https://kimza.itch.io/zendit"
   }
 ]
