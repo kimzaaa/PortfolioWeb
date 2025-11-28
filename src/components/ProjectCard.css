@@ -44,7 +44,7 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     text-decoration: none;
-    cursor: pointer;
+    cursor: none;
 }
 
 .display-wrapper:hover .overlay {

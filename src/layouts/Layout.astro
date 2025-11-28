@@ -15,16 +15,37 @@ import Navbar from '../components/Navbar.astro';
 		<title>Portfolio</title>
 	</head>
 	<body>
+		<div id="custom-cursor"></div>
 		<Navbar />
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html {
-		scroll-behavior: smooth;
         scroll-padding-top: 100px;
+        cursor: none;
 	}
+    
+    html.lenis, html.lenis body {
+        height: auto;
+    }
+
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+        overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+    }
     
     /* Hide scrollbar for Chrome, Safari and Opera */
     html::-webkit-scrollbar, body::-webkit-scrollbar {
@@ -44,7 +65,31 @@ import Navbar from '../components/Navbar.astro';
 		height: 100%;
 		overflow-x: hidden;
         background-color: #0A0B0C;
+        cursor: none;
 	}
+
+    a, button, input, select, textarea, .cursor-pointer {
+        cursor: none !important;
+    }
+
+    #custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease-out, opacity 0.2s ease;
+        opacity: 0;
+    }
+
+    #custom-cursor.active {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
 </style>
 
 <style is:global>
@@ -62,6 +107,21 @@ import Navbar from '../components/Navbar.astro';
 </style>
 
 <script>
+    import Lenis from 'lenis'
+
+    // Initialize Lenis
+    const lenis = new Lenis({
+        autoRaf: true,
+    });
+    
+    // Expose lenis to window for other components to use
+    window.lenis = lenis;
+    
+    // Listen for the scroll event and log the event data
+    lenis.on('scroll', (e) => {
+        // console.log(e);
+    });
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -79,5 +139,19 @@ import Navbar from '../components/Navbar.astro';
 
     document.querySelectorAll('.fade-in-section').forEach((section) => {
         observer.observe(section);
+    });
+    const cursor = document.getElementById('custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.style.opacity = '1';
+    });
+
+    document.addEventListener('mousedown', () => {
+        cursor.classList.add('active');
+    });
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('active');
     });
 </script>

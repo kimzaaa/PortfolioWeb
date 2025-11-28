@@ -104,7 +104,11 @@
                 // If the section exists on this page, smooth scroll to it
                 if (targetSection) {
                     e.preventDefault();
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    if (window.lenis) {
+                        window.lenis.scrollTo(targetSection);
+                    } else {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
                     // Optional: update URL hash without scrolling
                     history.pushState(null, null, targetId);
                 }
