@@ -13,24 +13,22 @@
 <style>
     .navbar {
         position: fixed;
-        top: 20px;
+        top: 0;
         left: 0;
         right: 0;
         display: flex;
-        justify-content: center;
         z-index: 1000;
-        pointer-events: none; /* Let clicks pass through around the nav */
+        pointer-events: none;
     }
 
     .nav-container {
-        background-color: #111111;
-        padding: 6px;
-        border-radius: 12px;
+        background-color: #0a0a0a;
+        width: 100%;
+        padding: 12px 40px;
         display: flex;
-        gap: 4px;
-        pointer-events: auto; /* Re-enable clicks on the nav itself */
-        border: 1px solid #222;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        gap: 8px;
+        pointer-events: auto;
+        border-bottom: 1px solid #222;
     }
 
     .nav-link {
