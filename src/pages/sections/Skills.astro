@@ -18,38 +18,6 @@ const iconMap = {
     <div class="bg-header">
         <p class="header-text"> Skills</p>
     </div>
-    <div class="content-container">
-        <div class="skills-grid">
-            {skillsData.map((category) => {
-                const Icon = iconMap[category.category as keyof typeof iconMap];
-                return (
-                <div class="skill-card">
-                    <div class="icon-wrapper">
-                        <div class="icon-circle">
-                            {Icon && <Icon size={32} color="white" />}
-                        </div>
-                    </div>
-                    <h3>{category.category}</h3>
-                    <div class="skills-list">
-                        {category.skills.map((skill) => (
-                            <div class="skill-chip">
-                                <span class="chip-text">{skill.name}</span>
-                                <div class="tooltip">
-                                    <div class="tooltip-header">
-                                        <span class="level">{skill.level}</span>
-                                        <span class="percent">{skill.percentage}%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style={`width: ${skill.percentage}%`}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )})}
-        </div>
-    </div>
 </div>
 
 <style>
