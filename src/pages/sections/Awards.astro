@@ -1,7 +1,25 @@
 ---
 import AwardCard from "../../components/AwardsCard.jsx";
-
 import AwardData from '../../data/awards.json';
+
+const images = import.meta.glob('/src/assets/awards/*', { eager: true }) as Record<string, { default: string }>;
+
+const getImageSrc = (uri: string) => {
+    if (!uri) return "";
+    if (uri.startsWith("http")) return uri;
+    
+    const path = `/src/assets/awards/${uri}`;
+    const module = images[path];
+    
+    if (module) return module.default;
+    
+    const foundKey = Object.keys(images).find(key => key.endsWith('/' + uri));
+    if (foundKey) {
+        return images[foundKey].default;
+    }
+
+    return uri;
+}
 ---
 
 <div id="Awards">
@@ -13,10 +31,11 @@ import AwardData from '../../data/awards.json';
         </div>
         <div class="grid-container">
             <div class="awards-grid">
-                {AwardData.map((project) => (
+                {AwardData.map((award) => (
                 <AwardCard 
-                    title={project.title} 
-                    year={project.year}
+                    title={award.title} 
+                    year={award.year}
+                    image={getImageSrc(award.image)}
                 >
                     <p> </p>
                 </AwardCard>

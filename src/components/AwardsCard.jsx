@@ -1,10 +1,30 @@
 import React from 'react';
 import '../components/AwardsCard.css';
 
-export default function AwardsCard({ title, year}) {
+export default function AwardsCard({ title, year, image}) {
+  const imageSrc = typeof image === 'object' && image?.src ? image.src : image;
+  const isVideo = typeof imageSrc === 'string' && ['.mov', '.mp4', '.webm'].some(ext => imageSrc.toLowerCase().endsWith(ext));
+  
   return (
     <div className="cards">
-        <div className="displays"></div>
+        <div className="displays">
+          {imageSrc ? (
+            isVideo ? (
+              <video 
+                src={imageSrc} 
+                className="award-media" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              />
+            ) : (
+              <img src={imageSrc} alt={title} className="award-media" />
+            )
+          ) : (
+            <div className="award-media placeholder"></div>
+          )}
+        </div>
         <div className="title-rows">
             <div className="title-year-groups">
                 <p className='titles'>{title}</p>

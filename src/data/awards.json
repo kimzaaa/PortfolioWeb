@@ -2,32 +2,44 @@
   {
     "id": 1,
     "title": "POSN Computer Camp 1 & 2",
-    "year": "2024 & 2025"
+    "year": "2024 & 2025",
+    "image": "posn.png"
     },
     {
     "id": 5,
     "title": "SISTEMIC Best-Engineering Award",
-    "year": "2025"
+    "year": "2025",
+    "image": "sistemic.jpg"
   },
   {
     "id": 2,
     "title": "AST (AI Standard test) TAIEC",
-    "year": "2025"
+    "year": "2025",
+    "image": "ast.jpg"
     },
   {
     "id": 3,
     "title": "NSC 27th Contest Regional",
-    "year": "2025"
+    "year": "2025",
+    "image": "nsc.jpg"
   },
   {
     "id": 4,
     "title": "Hamsterhub Game Jam Finalist",
-    "year": "2025"
+    "year": "2025",
+    "image": "hamsterhub.png"
 },
   
   {
     "id": 6,
     "title": "HKICO Gold Medalist",
-    "year": "2025"
+    "year": "2025",
+    "image": "hkico.jpg"
+  },
+  {
+    "id": 7,
+    "title": "SCB Aging Innovation Day Finalist",
+    "year": "2025",
+    "image": "scb.png"
   }
 ]

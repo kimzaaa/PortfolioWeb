@@ -6,8 +6,8 @@
     "details": "Diwa is an integrated digital ecosystem designed as the definitive resource for Thai events, utilizing advanced, location-aware algorithms to facilitate personalized, nationwide event discovery while empowering creators with fully integrated commerce tools for hosting, ticketing, merchandise sales, community building, and direct local support.",
     "year": "2025",
     "showcaseuri" : "EventApp.mov",
-    "gallery": [],
-    "link" : ""
+    "gallery": ["Diwa1.png"],
+    "link" : "https://play.google.com/store/apps/details?id=com.flamingorange.Diwa"
     },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "The Smart Box, Reminder Bracelet, and App form an AI/OCR-powered NCD medical system. Guarantees timely doses for the elderly, linking users, caretakers, and doctors with vital analytics for seamless care.",
     "details": "Pillsync is an innovative medical adherence system designed to help elderly patients manage their medication. It combines a smart pillbox, a reminder bracelet, and a mobile app powered by AI and OCR technology to ensure timely dosage and provide vital analytics to caregivers and doctors.",
     "year": "2024 - 2025",
-    "showcaseuri" : "",
+    "showcaseuri" : "Pillsync.mov",
     "gallery": [],
     "link" : "https://pillsyncth.netlify.app"
     },
